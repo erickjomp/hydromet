@@ -915,8 +915,7 @@ depth_to_posixct <- function(depth, depth_unit, tz = Sys.timezone()) {
                   "months"  = {
                     d <- as.Date(origin)
                     as.POSIXct(
-                      seq.Date(d, by = "month", length.out = max(floor(depth)) + 1)[floor(depth) + 1],
-                      tz = tz
+                      seq.Date(d, by = "month", length.out = max(floor(depth)) + 1)[floor(depth) + 1]
                     )
                   },
                   "years"   = {
