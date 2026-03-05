@@ -911,11 +911,12 @@ depth_to_posixct <- function(depth, depth_unit, tz = Sys.timezone()) {
                   "seconds" = as.POSIXct(origin + floor(depth),         tz = tz),
                   "minutes" = as.POSIXct(origin + floor(depth) * 60,    tz = tz),
                   "hours"   = as.POSIXct(origin + floor(depth) * 3600,  tz = tz),
-                  "days"    = as.POSIXct(origin + floor(depth) * 86400, tz = tz),
+                  "days"    = as.POSIXct(origin + floor(depth) * 86400, tz = ""),
                   "months"  = {
                     d <- as.Date(origin)
                     as.POSIXct(
-                      seq.Date(d, by = "month", length.out = max(floor(depth)) + 1)[floor(depth) + 1]
+                      seq.Date(d, by = "month", length.out = max(floor(depth)) + 1)[floor(depth) + 1],
+                      tz = tz
                     )
                   },
                   "years"   = {
