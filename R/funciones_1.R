@@ -879,7 +879,7 @@ trim_log <- function(vec, value = NA){
 #' depth_to_posixct(depth, "months since 1960-01-01", tz = "America/New_York")
 #'
 #' @export
-depth_to_posixct <- function(depth, depth_unit, tz = "") {
+depth_to_posixct <- function(depth, depth_unit, tz = Sys.timezone()) {
 
   # --- Input validation ---
   if (!is.numeric(depth)) stop("'depth' must be a numeric vector.")
