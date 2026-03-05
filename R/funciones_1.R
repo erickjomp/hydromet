@@ -922,7 +922,7 @@ depth_to_posixct <- function(depth, depth_unit, tz = "") {
                   "years"   = {
                     d <- as.Date(origin)
                     as.POSIXct(
-                      seq.Date(d, by = "year", length.out = max(floor(depth)) + 1)[floor(depth) + 1],
+                      seq.Date(d, by = "year", length.out = max(floor(depth)) + 1)[floor(depth) + 1] |> as.character(),
                       tz = tz
                     )
                   }
